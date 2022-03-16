@@ -8,9 +8,7 @@ name: shiny-deploy
 on:
   push:
     branches:
-      - shiny-server-main
-      - shiny-server-develop # add develop for testing for now
-      - release*
+      - include-setup
     paths-ignore:
       - .github/ISSUE_TEMPLATE/**
 
@@ -94,8 +92,8 @@ jobs:
         run: |
           branch <- Sys.getenv("GITHUB_REF_NAME")
           repo <- Sys.getenv("GITHUB_REPOSITORY")
-          appName <- strsplit(repo, "/")[[1]][2]
-          if (!startsWith(branch, "release")) {
+          appName <- gsub("/", "-", repo)
+          if (!grepl(branch, "main")) {
             appName <- paste(appName, "staging", sep = "-")
           }
           rsConnectUser <- "${{ secrets.RSCONNECT_USER }}"
