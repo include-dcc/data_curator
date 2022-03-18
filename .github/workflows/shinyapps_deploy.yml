@@ -92,7 +92,7 @@ jobs:
         run: |
           branch <- Sys.getenv("GITHUB_REF_NAME")
           repo <- Sys.getenv("GITHUB_REPOSITORY")
-          appName <- gsub("/", "-", repo)
+          appName <- "include-dcc-data-curator"
           if (!grepl(branch, "main")) {
             appName <- paste(appName, "staging", sep = "-")
           }
