@@ -20,6 +20,7 @@ jobs:
     env:
       # This should not be necessary for installing from public repo's however remotes::install_github() fails without it.
       GITHUB_PAT: ${{ secrets.REPO_PAT }}
+      SYNAPSE_ACCESS_TOKEN: ${{ secrets.SYNAPSE_ACCESS_TOKEN }}
 
     steps:
       - name: Install System Dependencies
