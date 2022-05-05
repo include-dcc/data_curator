@@ -23,7 +23,7 @@ manifest:
 
 model:
   input:
-    download_url: 'https://github.com/include-dcc/data-models/blob/main/portal_schema.jsonld' # url to download JSON-LD data model
+    download_url: 'https://raw.githubusercontent.com/include-dcc/data-models/main/portal_schema.jsonld' # url to download JSON-LD data model
     location: 'data-models/HTAN.model.jsonld' # path to JSON-LD data model
     file_type: 'local' # only type "local" is supported currently
 
