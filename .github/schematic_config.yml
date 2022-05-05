@@ -11,7 +11,7 @@ definitions:
   service_acct_creds: 'schematic_service_account_creds.json'
 
 synapse:
-  master_fileview: 'syn20446927' # fileview of project with datasets on Synapse
+  master_fileview: 'syn30039323' # fileview of project with datasets on Synapse
   manifest_folder: 'manifests' # manifests will be downloaded to this folder
   manifest_filename: 'synapse_storage_manifest.csv' # name of the manifest file in the project dataset
   token_creds: 'syn23643259' # synapse ID of credentials.json file
@@ -23,7 +23,7 @@ manifest:
 
 model:
   input:
-    download_url: 'https://github.com/include-dcc/data-models/blob/main/portal_schema_v1.jsonld' # url to download JSON-LD data model
+    download_url: 'https://github.com/include-dcc/data-models/blob/main/portal_schema.jsonld' # url to download JSON-LD data model
     location: 'data-models/HTAN.model.jsonld' # path to JSON-LD data model
     file_type: 'local' # only type "local" is supported currently
 
