@@ -103,6 +103,10 @@ shinyServer(function(input, output, session) {
     }
   })
 
+  # Create .synapseConfig with user's login info
+  writeLines(sprintf("username=%s\nauthtoken=%s", user_name, access_token),
+             "schematic/.synapseConfig")
+
   ######## Arrow Button ########
   lapply(1:3, function(i) {
     switchTabServer(id = paste0("switchTab", i), tabId = "tabs", tab = reactive(input$tabs)(), tabList = tabs_list, parent = session)
