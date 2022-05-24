@@ -94,10 +94,6 @@ shinyServer(function(input, output, session) {
 
       user_name <- syn_getUserProfile()$userName
 
-      # Create .synapseConfig with user's login info
-      writeLines(sprintf("username=%s\nauthtoken=%s", user_name, access_token),
-             "schematic/.synapseConfig")
-
       if (!syn_is_certified(user_name)) {
         dcWaiter("update", landing = TRUE, isCertified = FALSE)
       } else {
