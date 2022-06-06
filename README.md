@@ -1,4 +1,4 @@
-# Data Curator App
+# Data Curator App 
 
 ## Introduction
 
@@ -89,3 +89,4 @@ Main contributors and developers:
 
 [schematic]: https://github.com/Sage-Bionetworks/schematic/tree/develop
 [poetry]: https://github.com/python-poetry/poetry
+
