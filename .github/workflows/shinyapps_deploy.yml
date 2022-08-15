@@ -51,6 +51,7 @@ jobs:
           if [[ $GITHUB_REF_NAME == v*.*.* ]] || [[ $GITHUB_REF_NAME == main ]]; then
             echo Installing pypi version of schematic
             git clone --single-branch --branch main https://github.com/Sage-Bionetworks/schematic.git
+            cd schematic
             pip3 install schematicpy
           else
             pip3 install poetry
