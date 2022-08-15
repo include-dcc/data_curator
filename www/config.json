@@ -1,9 +1,9 @@
 {
   "manifest_schemas": [
-      {"display_name": "Study", "schema_name": "Study", "type": "study"},
-      {"display_name": "Participant", "schema_name": "Participant", "type": "participant"},
-      {"display_name": "Biospecimen", "schema_name": "Biospecimen", "type": "biospecimen"},
-      {"display_name": "Data File", "schema_name": "DataFile", "type": "datafile"}
+      {"display_name": "Study", "schema_name": "Study", "type": "record"},
+      {"display_name": "Participant", "schema_name": "Participant", "type": "record"},
+      {"display_name": "Biospecimen", "schema_name": "Biospecimen", "type": "record"},
+      {"display_name": "Data File", "schema_name": "DataFile", "type": "file"}
    
   ],
   "main_fileview" : "syn30109515",
