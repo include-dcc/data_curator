@@ -97,6 +97,8 @@ shinyServer(function(input, output, session) {
       # write .synapseConfig from user oauth creds
       writeLines(sprintf("[authentication]\nusername=%s\nauthtoken=%s\n", user_name, access_token),
                  "schematic/.synapseConfig")
+      writeLines(sprintf("[authentication]\nusername=%s\nauthtoken=%s\n", user_name, access_token),
+                 ".synapseConfig")
 
       if (!syn_is_certified(user_name)) {
         dcWaiter("update", landing = TRUE, isCertified = FALSE)
