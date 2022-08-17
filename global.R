@@ -93,7 +93,7 @@ system("chmod -R +x .venv")
 
 # Don't necessarily have to set `RETICULATE_PYTHON` env variable
 Sys.unsetenv("RETICULATE_PYTHON")
-reticulate::use_virtualenv(".venv")
+reticulate::use_virtualenv("./.venv")
 
 ## Import functions/modules
 source_files <- list.files(c("functions", "modules"), pattern = "*\\.R$", recursive = TRUE, full.names = TRUE)
