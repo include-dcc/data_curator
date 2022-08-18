@@ -46,11 +46,11 @@ jobs:
         run: |
           source .venv/bin/activate
           # use 'poetry' to install schematic from the develop branch 
-          pip3 install poetry
+          pip3 install poetry schematicpy
           git clone --single-branch --branch develop https://github.com/Sage-Bionetworks/schematic.git
           cd schematic
-          poetry build
-          pip3 install dist/schematicpy-1.0.0-py3-none-any.whl
+          #poetry build
+          #pip3 install dist/schematicpy-1.0.0-py3-none-any.whl
       - name: Set Configurations for Schematic
         shell: bash
         run: |
