@@ -57,7 +57,7 @@ jobs:
           source .venv/bin/activate
           # download data model to the correct location
           R -e '
-            config <- yaml::yaml.load_file("chematic_config.yml");
+            config <- yaml::yaml.load_file("schematic_config.yml");
             url  <- config$model$input$download_url;
             path <- config$model$input$location;
             system(sprintf("mkdir -p %s", dirname(path)));
