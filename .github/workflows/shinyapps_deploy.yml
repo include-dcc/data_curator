@@ -57,14 +57,14 @@ jobs:
           source .venv/bin/activate
           # download data model to the correct location
           R -e '
-            config <- yaml::yaml.load_file(".github/schematic_config.yml");
+            config <- yaml::yaml.load_file("chematic_config.yml");
             url  <- config$model$input$download_url;
             path <- config$model$input$location;
             system(sprintf("mkdir -p %s", dirname(path)));
             system(sprintf("wget %s -O %s", url, path));
           '
           # overwrite the config.yml in schematic
-          mv -f .github/schematic_config.yml schematic/config.yml
+          cp schematic_config.yml schematic/config.yml
           # write out configuration files using github secrets
           echo "${{ secrets.SCHEMATIC_SYNAPSE_CONFIG }}" > schematic/.synapseConfig
           echo "${{ secrets.SCHEMATIC_SERVICE_ACCT_CREDS }}" > schematic/schematic_service_account_creds.json
