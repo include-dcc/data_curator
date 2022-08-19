@@ -78,6 +78,10 @@ jobs:
           echo "${{ secrets.SCHEMATIC_SERVICE_ACCT_CREDS }}" > schematic_service_account_creds.json
           echo "${{ secrets.SCHEMATIC_CREDS_PATH }}" > credentials.json
           echo "${{ secrets.SCHEMATIC_TOKEN_PICKLE }}" | base64 -d > token.pickle
+                    echo "${{ secrets.SCHEMATIC_SYNAPSE_CONFIG }}" > schematic/.synapseConfig
+          echo "${{ secrets.SCHEMATIC_SERVICE_ACCT_CREDS }}" > schematic/schematic_service_account_creds.json
+          echo "${{ secrets.SCHEMATIC_CREDS_PATH }}" > schematic/credentials.json
+          echo "${{ secrets.SCHEMATIC_TOKEN_PICKLE }}" | base64 -d > schematic/token.pickle
 
       - name: zip virtual env
         shell: bash
