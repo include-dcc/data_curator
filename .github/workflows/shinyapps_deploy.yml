@@ -59,6 +59,7 @@ jobs:
             cd schematic
             poetry build
             pip3 install dist/schematicpy-1.0.0-py3-none-any.whl
+            cd ..
           fi
 
       - name: Set Configurations for Schematic
