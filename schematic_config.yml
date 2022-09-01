@@ -23,7 +23,7 @@ manifest:
 
 model:
   input:
-    repo: 'https://github.com/include-dcc/data-models/' # url to download JSON-LD data model
+    repo: 'include-dcc/data-models' # url to download JSON-LD data model
     location: 'data-models/portal_schema.jsonld' # path to JSON-LD data model
     file_type: 'local' # only type "local" is supported currently
 
