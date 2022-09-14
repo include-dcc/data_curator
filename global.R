@@ -1,6 +1,7 @@
 suppressPackageStartupMessages({
   library(yaml)
   library(reticulate)
+  library(shiny)
   library(httr)
   library(shiny)
   library(shinyjs)
@@ -92,7 +93,7 @@ system("chmod -R +x .venv")
 
 # Don't necessarily have to set `RETICULATE_PYTHON` env variable
 Sys.unsetenv("RETICULATE_PYTHON")
-reticulate::use_virtualenv(file.path(getwd(), ".venv"), required = TRUE)
+reticulate::use_virtualenv(file.path(getwd(), ".venv"))
 
 ## Import functions/modules
 source_files <- list.files(c("functions", "modules"), pattern = "*\\.R$", recursive = TRUE, full.names = TRUE)
@@ -110,3 +111,4 @@ config_file <- fromJSON("www/config.json")
 
 ## Global variables
 datatypes <- c("project", "folder", "template")
+options(sass.cache = FALSE)
