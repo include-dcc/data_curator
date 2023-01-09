@@ -8,9 +8,8 @@ on:
     branches:
       - main
       - develop*
-      - include-setup
     tags:
-      - v*.*.*
+      - v[0-9]+.[0-9]+.[0-9]+
     paths-ignore:
       - '.github/ISSUE_TEMPLATE/**'
       - '**/*.md'
@@ -23,7 +22,7 @@ jobs:
     container: rocker/rstudio:4.1.2
     env:
       # This should not be necessary for installing from public repo's however remotes::install_github() fails without it.
-      GITHUB_PAT: ${{ secrets.REPO_PAT }}
+      GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Install System Dependencies
@@ -31,7 +30,6 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y pip python3.8-venv libcurl4-openssl-dev
       - uses: actions/checkout@v2
-
       - uses: r-lib/actions/setup-pandoc@v1
 
       - name: Create and Activate Python Virtual Environment
@@ -50,16 +48,19 @@ jobs:
         run: |
           # has to activate each bash step
           source .venv/bin/activate
-          # use 'poetry' to install schematic dev schematic 
+          # use 'poetry' to install schematic dev schematic
           # If commit is tagged for release or in main branch, install schematic from pypi
           if [[ $GITHUB_REF_NAME == v*.*.* ]] || [[ $GITHUB_REF_NAME == main ]]; then
             echo Installing pypi version of schematic
             git clone --single-branch --branch main https://github.com/Sage-Bionetworks/schematic.git
+            cp schematic_config.yml schematic/config.yml
+            cd schematic
             pip3 install schematicpy
           else
             pip3 install poetry
             echo Installing develop branch of schematic from github
             git clone --single-branch --branch develop https://github.com/Sage-Bionetworks/schematic.git
+            cp schematic_config.yml schematic/config.yml
             cd schematic
             poetry build
             pip3 install dist/schematicpy-1.0.0-py3-none-any.whl
@@ -78,15 +79,17 @@ jobs:
           name: "schematic_service_account_creds.json"
           json: ${{ secrets.SCHEMATIC_SERVICE_ACCT_CREDS }}
 
-       - name: Set Configurations for Data Model
+
+      - name: Set Configurations for Data Model
         shell: bash
         run: |
           source .venv/bin/activate
           # download the data models and create config.json
           python3 .github/config_schema.py \
             -c schematic_config.yml \
-            --service_repo 'Sage-Bionetworks/schematic' 
-  
+            --service_repo 'Sage-Bionetworks/schematic' \
+            --overwrite
+
       - name: zip virtual env
         shell: bash
         # ShinyApps has a limit of 7000 files, far exceeded by the many Python dependencies
