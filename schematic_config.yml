@@ -23,8 +23,8 @@ manifest:
 
 model:
   input:
-    repo: 'include-dcc/data-models' # url to download JSON-LD data model
-    location: 'data-models/portal_schema.jsonld' # path to JSON-LD data model
+    repo: 'include-dcc/include-linkml' # url to download JSON-LD data model
+    location: 'include-linkml/src/data/schematic/include_schematic_linkml.jsonld' # path to JSON-LD data model
     file_type: 'local' # only type "local" is supported currently
 
 style:
