@@ -111,7 +111,7 @@ shinyServer(function(input, output, session) {
         })
       })
 
-      user_name <- syn_getUserProfile()$userName
+      user_name <- syn$getUserProfile()$userName
       
       # write .synapseConfig from user oauth creds
       writeLines(sprintf("[authentication]\nusername=%s\nauthtoken=%s\n", user_name, access_token),
