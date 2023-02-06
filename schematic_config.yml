@@ -1,3 +1,8 @@
+# During the github workflow to auto deploy the app
+# This config file will be used to overwrite the config.yml in the schematic folder
+#
+# Please modify the configuration values based on your project
+
 # Do not change the 'definitions' section unless you know what you're doing
 schematic:
   branch: 'empty'
@@ -11,27 +16,21 @@ definitions:
   service_acct_creds: 'schematic_service_account_creds.json'
 
 synapse:
-  master_fileview: 'syn33715412'
-  manifest_folder: 'manifests'
-  manifest_basename: 'synapse_storage_manifest'
-  token_creds: 'syn23643259'
-  service_acct_creds: 'syn25171627'
+  master_fileview: 'syn30109515' # fileview of project with datasets on Synapse
+  manifest_folder: 'manifests' # manifests will be downloaded to this folder
+  manifest_basename: 'synapse_storage_manifest.csv' # name of the manifest file in the project dataset
+  token_creds: 'syn23643259' # synapse ID of credentials.json file
+  service_acct_creds: 'syn25171627' # synapse ID of service_account_creds.json file
 
 manifest:
-  # if making many manifests, just include name prefix
-  title: 'example'
-  # to make all manifests enter only 'all manifests'
-  data_type:
-    - 'Biospecimen'
-    - 'Patient'
+  title: 'Patient Manifest' # title of metadata manifest file
+  data_type: 'Patient' # component or data type from the data model
 
 model:
   input:
-    # if both 'download_url' and 'repo' present, `repo` will be used
-    download_url: 'https://raw.githubusercontent.com/Sage-Bionetworks/data-models/main/example.model.jsonld' # url to download JSON-LD data model
-    repo: 'Sage-Bionetworks/data-models' # data model repo url (<repo-owner>/<repo-name>/<version/branch>), version or branch is optional
-    location: 'data-models/example.model.jsonld' # path to JSON-LD file
-    file_type: 'local'
+    repo: 'include-dcc/include-linkml' # url to download JSON-LD data model
+    location: 'include-linkml/src/data/schematic/include_schematic_linkml.jsonld' # path to JSON-LD data model
+    file_type: 'local' # only type "local" is supported currently
 
 style:
   google_manifest:

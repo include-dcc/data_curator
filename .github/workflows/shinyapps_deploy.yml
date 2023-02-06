@@ -8,6 +8,7 @@ on:
     branches:
       - main
       - develop*
+      - include-setup
     tags:
       - v[0-9]+.[0-9]+.[0-9]+
     paths-ignore:
@@ -104,7 +105,7 @@ jobs:
         run: |
           # if there is a tag, 'refName' will be tag name
           repo <- Sys.getenv("GITHUB_REPOSITORY")
-          appName <- strsplit(repo, "/")[[1]][2]
+          appName <- "include-dcc-data-curator"
           refName <- Sys.getenv("GITHUB_REF_NAME")
           # if tag is v*.*.*, deploy to prod, if main to staging, otherwise to test
           if (grepl("v[0-9]+.[0-9]+.[0-9]+", refName)) {
@@ -113,7 +114,7 @@ jobs:
             appName <- paste(appName, "staging", sep = "-")
             message("Deploying staging version of app")
           } else {
-            appName <- paste(appName, "testing1", sep = "-")
+            appName <- paste(appName, "testing", sep = "-")
             message("Deploying testing version of app")
           }
           message(sprintf("Deploying to %s instance.", appName))

@@ -39,13 +39,13 @@ ui <- shinydashboardPlus::dashboardPage(
       )
     ),
     tags$li(
-      class = "dropdown", id = "HTAN_logo",
+      class = "dropdown", id = "INCLUDE_logo",
       tags$a(
-        href = "https://synapse.org/",
+        href = "https://includedcc.org/",
         target = "_blank",
         tags$img(
-          height = "40px", alt = "SYNAPSE LOGO",
-          src = "img/synapse_logo.png"
+          height = "40px", alt = "INCLUDE LOGO",
+          src = "img/INCLUDE DCC Logo-01.png"
         )
       )
     )
@@ -73,7 +73,8 @@ ui <- shinydashboardPlus::dashboardPage(
       tags$a(
         id = "sidebar_footer", `data-toggle` = "tab",
         tags$div(icon("heart")),
-        tags$footer(HTML('Powered by <i class="far fa-heart"></i> and Sage Bionetworks'))
+        tags$footer(HTML('Supported by the INCLUDE Data Coordinating Center <br/>
+                  Powered by <i class="far fa-heart"></i> and Sage Bionetworks'))
       )
     )
   ),

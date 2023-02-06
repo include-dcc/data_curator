@@ -1,6 +1,7 @@
 suppressPackageStartupMessages({
   library(yaml)
   library(reticulate)
+  library(shiny)
   library(httr)
   library(shiny)
   library(shinyjs)
@@ -98,7 +99,7 @@ system("chmod -R +x .venv")
 
 # Don't necessarily have to set `RETICULATE_PYTHON` env variable
 Sys.unsetenv("RETICULATE_PYTHON")
-reticulate::use_virtualenv(file.path(getwd(), ".venv"), required = TRUE)
+reticulate::use_virtualenv(file.path(getwd(), ".venv"))
 
 ## Import functions/modules
 # import synapse client
